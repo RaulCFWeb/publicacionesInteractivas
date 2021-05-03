@@ -1338,7 +1338,7 @@ section .containerEvaluations a img:hover{
     }
     .container .material .content img{
         width: 200px;
-    }}
+    }
 }
 @media (max-width: 458px){
     .logo img{
@@ -1361,5 +1361,4 @@ section .containerEvaluations a img:hover{
 @media (max-width: 394px){
     .menuNav{
         font-size: 0.8em;
-    }
-}
+    }}}
