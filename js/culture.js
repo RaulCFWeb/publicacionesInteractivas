@@ -50,51 +50,74 @@ const setActiveCourseSimple = () => {
 FUNCION PARA DETECTAR EL SCROL Y AGREGA ANIMACIONES A LOS MATERIALES
 SIMPLES
 */
+const showElement = 700
 const animationsSimples= () => {
-    window.addEventListener('scroll', () => {
+    const menuContainerSimple = document.querySelector('.menuContainerSimple')
+    if(menuContainerSimple.getBoundingClientRect().top < showElement){
+        menuContainerSimple.style.left= '0'
+        menuContainerSimple.style.transition = 'all 1s ease-in-out'
+    }
 
-        const menuContainerSimple = document.querySelector('.menuContainerSimple')
-        menuContainerSimple.getBoundingClientRect().top < 550 ? menuContainerSimple.style.animation = 'hiddenFromRight ease-in-out 1s' : menuContainerSimple.style.animation = ''
+    const imgCourseSimple1 = document.querySelector('#imgCourseSimple1')
+    if(imgCourseSimple1.getBoundingClientRect().top < showElement){
+        imgCourseSimple1.style.left= '0'
+        imgCourseSimple1.style.transition = 'all 1s ease-in-out'
+    }
 
-        const imgCourseSimple1 = document.querySelector('#imgCourseSimple1')
-        imgCourseSimple1.getBoundingClientRect().top < 550 ? imgCourseSimple1.style.animation = 'hiddenFromLeft ease-in-out 1s' : imgCourseSimple1.style.animation = ''
-
-        const description = document.querySelectorAll('.presentationSimple .description')
-        for (let i = 0; i < description.length; i++){
-            description[i].getBoundingClientRect().top < 550 ? description[i].style.animation = 'hiddenFromRight ease-in-out 1s' : description[i].style.animation = ''
+    const description = document.querySelectorAll('.presentationSimple .description')
+    for (let i = 0; i < description.length; i++){
+        if(description[i].getBoundingClientRect().top < showElement) {
+            description[i].style.right = '0'
+            description[i].style.transition = 'all 0.8s ease-in-out' 
         }
-        const titleParrafo = document.querySelectorAll('.presentationSimple .titleParrafo')   
-        for (let i = 0; i < titleParrafo.length; i++){
-            titleParrafo[i].getBoundingClientRect().top < 550 ? titleParrafo[i].style.animation = 'hiddenFromLeft ease-in-out 1s' : titleParrafo[i].style.animation = ''
+    }
+    const titleParrafo = document.querySelectorAll('.presentationSimple .titleParrafo')   
+    for (let i = 0; i < titleParrafo.length; i++){
+        if(titleParrafo[i].getBoundingClientRect().top < showElement){
+            titleParrafo[i].style.left = '0'
+            titleParrafo[i].style.transition = 'all 0.8s ease-in-out' 
         }
-    })
+    }
 }
+setInterval(animationsSimples, 101);
 /*
 FUNCION PARA DETECTAR EL SCROL Y AGREGA ANIMACIONES A LOS MATERIALES
  CON TABS
 */
 const animationsTabs = () => {
-    window.addEventListener('scroll', () => {
+    const menuContainer = document.querySelector('.menuContainer')
+    if(menuContainer.getBoundingClientRect().top < showElement){
+    menuContainer.style.right= '0'
+    menuContainer.style.transition = 'all 1s ease-in-out'
+    }
 
-        const menuContainer = document.querySelector('.menuContainer')
-        menuContainer.getBoundingClientRect().top < 550 ? menuContainer.style.animation = 'hiddenFromRight ease-in-out 1s' : menuContainer.style.animation = ''
+    const course = document.querySelector('.course')
+    if(course.getBoundingClientRect().top < showElement){
+        course.style.left = '0'
+        course.style.transition = 'all 1s ease-in-out'
+    }
 
-        const course = document.querySelector('.course')
-        course.getBoundingClientRect().top < 550 ? course.style.animation = 'hiddenFromLeft ease-in-out 1s' : course.style.animation = ''
-
-        const titleParrafo = document.querySelectorAll('.presentation .titleParrafo')   
-        for (let i = 0; i < titleParrafo.length; i++){
-            titleParrafo[i].getBoundingClientRect().top < 550 ? titleParrafo[i].style.animation = 'hiddenFromLeft ease-in-out 1s' : titleParrafo[i].style.animation = ''
+    const titleParrafo = document.querySelectorAll('section .titleParrafo')
+    for (let i = 0; i < titleParrafo.length; i++){
+        if(titleParrafo[i].getBoundingClientRect().top < showElement) {
+            titleParrafo[i].style.left = '0'
+            titleParrafo[i].style.transition = 'all 1s ease-in-out' 
         }
-        const description = document.querySelectorAll('.presentation .description')
-        for (let i = 0; i < description.length; i++){
-            description[i].getBoundingClientRect().top < 550 ? description[i].style.animation = 'hiddenFromRight ease-in-out 1s' : description[i].style.animation = ''
+    }
+
+    const description = document.querySelectorAll('.presentation .description')
+    for (let i = 0; i < description.length; i++){
+        if(description[i].getBoundingClientRect().top < showElement) {
+            description[i].style.right = '0'
+            description[i].style.transition = 'all 0.9s ease-in-out' 
         }
+    }
 
-        const uls = document.querySelector('#uls')
-        uls.getBoundingClientRect().top < 550 ? uls.style.animation = 'hiddenFromLeft ease-in-out 1s' : uls.style.animation =''
-
-    })
+    const uls = document.querySelector('#uls')
+    if(uls.getBoundingClientRect().top < showElement){
+        uls.style.left = '0'
+        uls.style.transition = 'all 1s ease-in-out'
+    }
 }
 
 
@@ -136,9 +159,9 @@ const mexico = () => {
     setCourseSimple()[3].children[0].classList.add('activeMaterial')
     document.querySelector('#mexico').addEventListener('click', mexico)
     document.querySelector('#artGuiaVisual').addEventListener('click', artGuiaVisual)
-    animationsSimples();
+    setInterval(animationsSimples, 101);
 }
-animationsSimples();
+
 
 
 
@@ -198,7 +221,7 @@ const artGuiaVisual = () => {
     setCourse()[5].children[1].classList.add('activeMaterial')
     document.querySelector('#mexico').addEventListener('click', mexico)
     document.querySelector('#artGuiaVisual').addEventListener('click', artGuiaVisual)
-    animationsTabs();
+    setInterval(animationsTabs, 100);
 }
 
 

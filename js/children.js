@@ -28,31 +28,51 @@ const setActiveTabs = () => {
 }
 
 /*
-DETECTA EL SCROL Y AGREGA ANIMACIONES
-*/
-window.addEventListener('scroll', () => {
+COMPRUEBA SI EL CONTENIDO YA SE PUEDE MOSTRAR 
 
+*/
+setInterval(() => {
+    const showElement = 700
     const menuContainer = document.querySelector('.menuContainer')
-    menuContainer.getBoundingClientRect().top < 550 ? menuContainer.style.animation = 'hiddenFromRight ease-in-out 1s' : menuContainer.style.animation = ''
+    if(menuContainer.getBoundingClientRect().top < showElement){
+    menuContainer.style.right= '0'
+    menuContainer.style.transition = 'all 1s ease-in-out'
+    }
 
     const course = document.querySelector('.course')
-    course.getBoundingClientRect().top < 550 ? course.style.animation = 'hiddenFromLeft ease-in-out 1s' : course.style.animation = ''
-
-    const titleParrafo = document.querySelectorAll('.presentation .titleParrafo')   
-    for (let i = 0; i < titleParrafo.length; i++){
-        titleParrafo[i].getBoundingClientRect().top < 550 ? titleParrafo[i].style.animation = 'hiddenFromLeft ease-in-out 1s' : titleParrafo[i].style.animation = ''
+    if(course.getBoundingClientRect().top < showElement){
+        course.style.left = '0'
+        course.style.transition = 'all 1s ease-in-out'
     }
+
+    const titleParrafo = document.querySelectorAll('section .titleParrafo')
+    for (let i = 0; i < titleParrafo.length; i++){
+        if(titleParrafo[i].getBoundingClientRect().top < showElement) {
+            titleParrafo[i].style.left = '0'
+            titleParrafo[i].style.transition = 'all 1s ease-in-out' 
+        }
+    }
+
     const description = document.querySelectorAll('.presentation .description')
     for (let i = 0; i < description.length; i++){
-        description[i].getBoundingClientRect().top < 550 ? description[i].style.animation = 'hiddenFromRight ease-in-out 1s' : description[i].style.animation = ''
+        if(description[i].getBoundingClientRect().top < showElement) {
+            description[i].style.right = '0'
+            description[i].style.transition = 'all 0.9s ease-in-out' 
+        }
     }
+
     const tabs = document.querySelector('#tabs')
-    tabs.getBoundingClientRect().top < 550 ? tabs.style.animation = 'hiddenFromLeft ease-in-out 1s' : tabs.style.animation = ''
+    if(tabs.getBoundingClientRect().top < showElement){
+        tabs.style.left = '0'
+        tabs.style.transition = 'all 1s ease-in-out'
+    }
     
     const content = document.querySelector('.content')
-    content.getBoundingClientRect().top < 550 ? content.style.animation = 'hiddenFromRight ease-in-out 1s' : content.style.animation = ''
-    
-})
+    if(content.getBoundingClientRect().top < showElement){
+        content.style.right = '0'
+        content.style.transition = 'all 1s ease-in-out'
+    }
+}, 100);
 
 
 

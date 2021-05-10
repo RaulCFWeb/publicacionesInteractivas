@@ -56,52 +56,81 @@ const setActiveCourseSimple = () => {
 FUNCION PARA DETECTAR EL SCROL Y AGREGA ANIMACIONES A LOS MATERIALES
 SIMPLES
 */
+const showElement = 700
 const animationsSimples= () => {
-    window.addEventListener('scroll', () => {
+    const menuContainerSimple = document.querySelector('.menuContainerSimple')
+    if(menuContainerSimple.getBoundingClientRect().top < showElement){
+        menuContainerSimple.style.left= '0'
+        menuContainerSimple.style.transition = 'all 1s ease-in-out'
+    }
 
-        const menuContainerSimple = document.querySelector('.menuContainerSimple')
-        menuContainerSimple.getBoundingClientRect().top < 550 ? menuContainerSimple.style.animation = 'hiddenFromRight ease-in-out 1s' : menuContainerSimple.style.animation = ''
+    const imgCourseSimple1 = document.querySelector('#imgCourseSimple1')
+    if(imgCourseSimple1.getBoundingClientRect().top < showElement){
+        imgCourseSimple1.style.left= '0'
+        imgCourseSimple1.style.transition = 'all 1s ease-in-out'
+    }
 
-        const imgCourseSimple1 = document.querySelector('#imgCourseSimple1')
-        imgCourseSimple1.getBoundingClientRect().top < 550 ? imgCourseSimple1.style.animation = 'hiddenFromLeft ease-in-out 1s' : imgCourseSimple1.style.animation = ''
-
-        const description = document.querySelectorAll('.presentationSimple .description')
-        for (let i = 0; i < description.length; i++){
-            description[i].getBoundingClientRect().top < 550 ? description[i].style.animation = 'hiddenFromRight ease-in-out 1s' : description[i].style.animation = ''
+    const description = document.querySelectorAll('.presentationSimple .description')
+    for (let i = 0; i < description.length; i++){
+        if(description[i].getBoundingClientRect().top < showElement) {
+            description[i].style.right = '0'
+            description[i].style.transition = 'all 0.8s ease-in-out' 
         }
-    })
+    }
 }
+setInterval(animationsSimples, 100);
 /*
 FUNCION PARA DETECTAR EL SCROL Y AGREGA ANIMACIONES A LOS MATERIALES
  CON TABS
 */
 const animationsTabs = () => {
-    window.addEventListener('scroll', () => {
+    const menuContainer = document.querySelector('.menuContainer')
+    if(menuContainer.getBoundingClientRect().top < showElement){
+    menuContainer.style.right= '0'
+    menuContainer.style.transition = 'all 1s ease-in-out'
+    }
 
-        const menuContainer = document.querySelector('.menuContainer')
-        menuContainer.getBoundingClientRect().top < 550 ? menuContainer.style.animation = 'hiddenFromRight ease-in-out 1s' : menuContainer.style.animation = ''
+    const course = document.querySelector('.course')
+    if(course.getBoundingClientRect().top < showElement){
+        course.style.left = '0'
+        course.style.transition = 'all 1s ease-in-out'
+    }
 
-        const course = document.querySelector('.course')
-        course.getBoundingClientRect().top < 550 ? course.style.animation = 'hiddenFromLeft ease-in-out 1s' : course.style.animation = ''
-
-        const titleParrafo = document.querySelectorAll('.presentation .titleParrafo')   
-        for (let i = 0; i < titleParrafo.length; i++){
-            titleParrafo[i].getBoundingClientRect().top < 550 ? titleParrafo[i].style.animation = 'hiddenFromLeft ease-in-out 1s' : titleParrafo[i].style.animation = ''
+    const titleParrafo = document.querySelectorAll('section .titleParrafo')
+    for (let i = 0; i < titleParrafo.length; i++){
+        if(titleParrafo[i].getBoundingClientRect().top < showElement) {
+            titleParrafo[i].style.left = '0'
+            titleParrafo[i].style.transition = 'all 1s ease-in-out' 
         }
-        const description = document.querySelectorAll('.presentation .description')
-        for (let i = 0; i < description.length; i++){
-            description[i].getBoundingClientRect().top < 550 ? description[i].style.animation = 'hiddenFromRight ease-in-out 1s' : description[i].style.animation = ''
+    }
+
+    const description = document.querySelectorAll('.presentation .description')
+    for (let i = 0; i < description.length; i++){
+        if(description[i].getBoundingClientRect().top < showElement) {
+            description[i].style.right = '0'
+            description[i].style.transition = 'all 0.9s ease-in-out' 
         }
-        const tabs = document.querySelector('#tabs')
-        tabs.getBoundingClientRect().top < 550 ? tabs.style.animation = 'hiddenFromLeft ease-in-out 1s' : tabs.style.animation = ''
-        const content = document.querySelector('.content')
-        content.getBoundingClientRect().top < 550 ? content.style.animation = 'hiddenFromRight ease-in-out 1s' : content.style.animation = ''
+    }
 
-        const uls = document.querySelector('#uls')
-        uls.getBoundingClientRect().top < 550 ? uls.style.animation = 'hiddenFromLeft ease-in-out 1s' : uls.style.animation =''
+    const tabs = document.querySelector('#tabs')
+    if(tabs.getBoundingClientRect().top < showElement){
+        tabs.style.left = '0'
+        tabs.style.transition = 'all 1s ease-in-out'
+    }
+    
+    const content = document.querySelector('.content')
+    if(content.getBoundingClientRect().top < showElement){
+        content.style.right = '0'
+        content.style.transition = 'all 1s ease-in-out'
+    }
 
-    })
+    const uls = document.querySelector('#uls')
+    if(uls.getBoundingClientRect().top < showElement){
+        uls.style.left = '0'
+        uls.style.transition = 'all 1s ease-in-out'
+    }
 }
+
 
 
 
@@ -143,10 +172,9 @@ const computacion = () => {
     document.querySelector('#colectionEst').addEventListener('click', colectionEst)
     document.querySelector('#colectionInf').addEventListener('click', colectionInf)
     
-    animationsSimples();
+    setInterval(animationsSimples, 100);
 }
 
-animationsSimples();
 
 /*
 GENERA EL CONTENIDO DEL MATERIAL MATEMATICAS
@@ -182,7 +210,7 @@ const matematicas = () => {
     document.querySelector('#matematicas').addEventListener('click', matematicas)
     document.querySelector('#colectionEst').addEventListener('click', colectionEst)
     document.querySelector('#colectionInf').addEventListener('click', colectionInf)
-    animationsSimples();
+    setInterval(animationsSimples, 100);
 }
 
 
@@ -437,7 +465,7 @@ const colectionEst = () => {
     document.querySelector('#matematicas').addEventListener('click', matematicas)
     document.querySelector('#colectionEst').addEventListener('click', colectionEst)
     document.querySelector('#colectionInf').addEventListener('click', colectionInf)
-    animationsTabs();
+    setInterval(animationsTabs, 100);
 }
 
 
@@ -651,7 +679,7 @@ const colectionInf = () => {
     document.querySelector('#matematicas').addEventListener('click', matematicas)
     document.querySelector('#colectionEst').addEventListener('click', colectionEst)
     document.querySelector('#colectionInf').addEventListener('click', colectionInf)
-    animationsTabs();
+    setInterval(animationsTabs, 100);
 }
 
 document.querySelector('#computacion').addEventListener('click', computacion)

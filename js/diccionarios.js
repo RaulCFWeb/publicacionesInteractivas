@@ -19,30 +19,48 @@ const setActiveCourseSimple = () => {
 }
 
 /*
-DETECTA EL SCROL Y AGREGA ANIMACIONES AL INDEX
+COMPRUEBA SI EL CONTENIDO YA SE PUEDE MOSTRAR 
 */
-window.addEventListener('scroll', () => {
-
+setInterval(() => {
+    const showElement = 700
     const menuContainerSimple = document.querySelector('.menuContainerSimple')
-    menuContainerSimple.getBoundingClientRect().top < 550 ? menuContainerSimple.style.animation = 'hiddenFromRight ease-in-out 1s' : menuContainerSimple.style.animation = ''
+    if(menuContainerSimple.getBoundingClientRect().top < showElement){
+        menuContainerSimple.style.left= '0'
+        menuContainerSimple.style.transition = 'all 1s ease-in-out'
+    }
 
     const imgCourseSimple1 = document.querySelector('#imgCourseSimple1')
-    imgCourseSimple1.getBoundingClientRect().top < 550 ? imgCourseSimple1.style.animation = 'hiddenFromLeft ease-in-out 1s' : imgCourseSimple1.style.animation = ''
+    if(imgCourseSimple1.getBoundingClientRect().top < showElement){
+        imgCourseSimple1.style.left= '0'
+        imgCourseSimple1.style.transition = 'all 1s ease-in-out'
+    }
 
     const imgCourseSimple2 = document.querySelector('#imgCourseSimple2')
-    imgCourseSimple2.getBoundingClientRect().top < 550 ? imgCourseSimple2.style.animation = 'hiddenFromLeft ease-in-out 1s' : imgCourseSimple2.style.animation = ''
+    if(imgCourseSimple2.getBoundingClientRect().top < showElement){
+        imgCourseSimple2.style.left= '0'
+        imgCourseSimple2.style.transition = 'all 1s ease-in-out'
+    }
 
     const imgCourseSimpleGoTo = document.querySelector('#imgCourseSimpleGoTo')
-    imgCourseSimpleGoTo.getBoundingClientRect().top < 550 ? imgCourseSimpleGoTo.style = 'opacity: 1; transition: all 1s' : imgCourseSimpleGoTo.style = 'opacity: 0; transition: all 1s'
+    if(imgCourseSimpleGoTo.getBoundingClientRect().top < showElement){
+        imgCourseSimpleGoTo.style.opacity= '1'
+        imgCourseSimpleGoTo.style.transition = 'all 1s ease-in-out'
+    }
 
     const description = document.querySelectorAll('.presentationSimple .description')
     for (let i = 0; i < description.length; i++){
-        description[i].getBoundingClientRect().top < 550 ? description[i].style.animation = 'hiddenFromRight ease-in-out 1s' : description[i].style.animation = ''
+        if(description[i].getBoundingClientRect().top < showElement) {
+            description[i].style.right = '0'
+            description[i].style.transition = 'all 0.8s ease-in-out' 
+        }
     }
 
     const ols = document.querySelector('#ols')
-    ols.getBoundingClientRect().top < 550 ? ols.style.animation = 'hiddenFromLeft ease-in-out 1s' : ols.style.animation =''
-})
+    if(ols.getBoundingClientRect().top < showElement){
+        ols.style.left= '0'
+        ols.style.transition = 'all 1s ease-in-out'
+    }
+}, 100);
 
 
 /*************************************************
