@@ -571,13 +571,6 @@ section .container{
     align-items: center;
     overflow: hidden;
 }
-.eval p{
-    margin: 35px auto;
-    font-size: 1.3em;
-    font-weight: bold;
-    text-transform: uppercase;
-    font-family: 'Oswald', sans-serif;
-}
 section .containerEvaluations{
     display: grid;
     grid-gap: 5px;
@@ -773,6 +766,9 @@ section .containerEvaluations a img:hover{
     }
     .eval .containerEvaluations{
         grid-template-columns: 100%;
+    }
+    .eval .messageCourses{
+        font-size: 1.2em;
     }
 }
 @media (max-width: 699px){
