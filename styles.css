@@ -63,7 +63,9 @@ a{
     }
 
 }
-
+summary{
+    list-style-image: none;
+}
 
 /***************** NAVIGATION BAR ************/
 .navigation{
@@ -120,6 +122,9 @@ body{
     width: 100%;
     height: 50vh;
 }
+
+
+/********************** COURSES ********************/
 .messageCourses{
     width: 80%;
     font-size: 1.6em;
@@ -132,8 +137,6 @@ body{
     text-shadow: 2px 2px 2px var(--secundaryColor);
     animation: hoverBig linear 3s infinite;
 }
-
-/********************** COURSES ********************/
 .courses{
     width: 95%;
     margin: 1% auto;
@@ -177,6 +180,7 @@ footer{
 .menuFooter iframe{
     width: 100%;
     height: 250px;
+    margin: 0 auto;
 }
 .menuFooter .social a{
     font-size: 2.3em;
@@ -223,6 +227,7 @@ section{
     flex-direction: row;
     background-color: #f7f7f8;
     box-shadow: 1px 1px 4px gray;
+    overflow: hidden;
 }
 .containerPrincipal .title{
     font-size: 1.7em;
@@ -264,6 +269,55 @@ section .element .title{
 }
 section .element .description{
     margin: 20px;
+}
+section .comments{
+    width: 90%;
+    display: flex;
+    flex-flow: row wrap;
+    margin: 0 auto 30px auto;
+    text-align: center;
+    font-family: 'Oswald', sans-serif;
+    background-color: var(--sectionTransparent);
+    box-shadow: -1px -1px 10px #ccc;
+    border-radius: 50px;
+    padding: 10px;
+    right: -200%;
+    position: relative;
+}
+section .comments > div{
+    width: 100%;
+}
+section .comments > div .messageCourses{
+    font-size: 1.3em;
+    margin-top: 10px;
+}
+section .comments .score{
+    width: 100%;
+    margin: 0 auto;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-around;
+}
+section .comments .score .icon-star,
+section .comments .score .icon-star-empty{
+    color: var(--secundaryColor);
+    font-size: 1.5em;
+}
+section .comments h4,
+section .comments blockquote{
+    margin: 15px auto;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+.comments .name{
+    letter-spacing: 5px;
+}
+section .comments img{
+    height: 200px;
+    width: 200px;
+    border-radius: 100%;
+    border: 5px solid var(--primaryColor);
+    box-shadow: 1px 1px 1px black;
 }
 .form{
     display: flex;
@@ -392,12 +446,14 @@ section .container{
 
 .container .presentation{
     grid-area: presentation;
-    margin: 5px 50px;
+    justify-self: center;
+    margin: 0 auto;
+    width: 90%;
 }
 .container .presentation .titleParrafo{
     font-weight: bold;
     font-size: 1.4em;
-    margin: 15px 30px 0 0;
+    margin: 15px auto;
     position: relative;
     left: -200%;   
     font-family: 'Ubuntu', sans-serif;
@@ -408,13 +464,13 @@ section .container{
     position: relative;
     right: -200%;
     text-align: justify;
-    margin: 15px 30px 0 0;
+    margin: 15px auto;
 }
 .container .presentation span{
     font-weight: bold;
 }
 .container .presentation ul li{
-    margin: 15px 30px 0 0;
+    margin: 10px 25px;
     font-size: 1.1em; 
     font-family: 'Ubuntu', sans-serif;
     text-align: justify;
@@ -680,11 +736,10 @@ section .containerEvaluations a img:hover{
     .container .course div{
         border-radius: 0 0 15px 15px;
         width: 75%;
-        margin: 0 auto;
+
     }
     .container .course img{
         width: 80%;
-        margin: 0 auto;
     }
 }
 @media (max-width: 1016px){
@@ -758,11 +813,15 @@ section .containerEvaluations a img:hover{
     }
 }
 @media (max-width: 800px){
-    .container .course div{
-        width: 100%;
+    .container .course{
+        grid-template-columns: 90%;
+        justify-content: center;
     }
+    .container .course div, 
     .container .course img{
         width: 100%;
+        align-self: center;
+        justify-self: center;
     }
     .eval .containerEvaluations{
         grid-template-columns: 100%;

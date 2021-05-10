@@ -24,5 +24,10 @@ setInterval(() => {
         forms.style.opacity = '1'
         forms.style.transition = 'all 2s ease-in-out'
     }
+    const comments = document.querySelector('.comments')
+    if(comments.getBoundingClientRect().top < showElement){
+        comments.style.right = '0'
+        comments.style.transition = 'all 1.5s ease-in-out'
+    }
 }, 100);
 
